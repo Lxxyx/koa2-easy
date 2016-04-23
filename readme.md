@@ -13,3 +13,9 @@ npm run dev
 npm i pm2 -g
 npm run pm2
 ```
+
+## 使用
+需要具有ES6基础。
+
+在router/index.js中，有发送静态html和渲染模版的两种方式。
+在router/test.js，有发送json数据和读取post数据的方式
