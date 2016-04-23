@@ -4,6 +4,8 @@ import bodyParser from 'koa-bodyparser'
 import convert from 'koa-convert'
 import logger from 'koa-logger'
 import views from 'koa-views'
+import serve from 'koa-static'
+import send from 'koa-send'
 
 import index from './router/index'
 import api from './router/api'
@@ -30,9 +32,19 @@ app.use(convert(json()));
 // body解析
 app.use(convert(bodyParser()));
 
+// 设置渲染引擎
 app.use(views(__dirname + '/views', {
   extension: 'ejs'
 }))
+
+// 静态文件夹
+app.use(convert(serve(__dirname + 'static')))
+
+// 发送文件，如HTML
+app.use(async (ctx, next) => {
+  ctx.send = send
+  await next()
+})
 
 // 路由
 app
