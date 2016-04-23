@@ -2,6 +2,8 @@ import Koa from 'koa'
 import json from 'koa-json'
 import bodyParser from 'koa-bodyparser'
 import convert from 'koa-convert'
+import logger from 'koa-logger'
+
 import index from './router/index'
 import api from './router/api'
 import test from './router/test'
@@ -18,13 +20,16 @@ app.use(async(ctx, next) => {
   }
 })
 
+
+// app.use(async(ctx, next) => {
+//   let start = new Date()
+//   await next()
+//   let ms = new Date() - start
+//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms - ${ctx.status}`)
+// })
+
 // 记录所用方式与时间
-app.use(async(ctx, next) => {
-  let start = new Date()
-  await next()
-  let ms = new Date() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms - ${ctx.status}`)
-})
+app.use(convert(logger()))
 
 // 传输JSON
 app.use(convert(json()));
