@@ -50,3 +50,5 @@ router
     ctx.body = ctx.request.body
   })
 ```
+### 添加新路由
+按照router文件夹中范例编写，并在app.js中添加即可。
