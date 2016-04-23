@@ -2,8 +2,10 @@ import Router from 'koa-router'
 
 const router = new Router()
 
-router.get('/', (ctx, next) => {
-  ctx.body = "This is Index"
+router.get('/', async (ctx, next) => {
+  await ctx.render('index', {
+    title: 'Koa-Easy'
+  })
 })
 
 export default router

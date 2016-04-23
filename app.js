@@ -3,6 +3,7 @@ import json from 'koa-json'
 import bodyParser from 'koa-bodyparser'
 import convert from 'koa-convert'
 import logger from 'koa-logger'
+import views from 'koa-views'
 
 import index from './router/index'
 import api from './router/api'
@@ -20,14 +21,6 @@ app.use(async(ctx, next) => {
   }
 })
 
-
-// app.use(async(ctx, next) => {
-//   let start = new Date()
-//   await next()
-//   let ms = new Date() - start
-//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms - ${ctx.status}`)
-// })
-
 // 记录所用方式与时间
 app.use(convert(logger()))
 
@@ -36,6 +29,10 @@ app.use(convert(json()));
 
 // body解析
 app.use(convert(bodyParser()));
+
+app.use(views(__dirname + '/views', {
+  extension: 'ejs'
+}))
 
 // 路由
 app
