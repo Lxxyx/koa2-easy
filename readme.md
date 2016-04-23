@@ -4,6 +4,7 @@
 
 ## 启动
 ```
+npm i nodemon -g
 npm i
 npm run dev
 ```
