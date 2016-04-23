@@ -17,5 +17,36 @@ npm run pm2
 ## 使用
 需要具有ES6基础。
 
-在router/index.js中，有发送静态html和渲染模版的两种方式。
-在router/test.js，有发送json数据和读取post数据的方式
+### 模板渲染
+```javascript
+router
+  .get('/', async(ctx, next) => {
+    // 模板渲染，第一个参数为模板名称
+    // 模板放置于views文件夹中
+    await ctx.render('index', { title: 'Koa-Easy' })
+  })
+```
+### 发送静态HTML文件
+```javascript
+router
+  .get('/index', async(ctx, next) => {
+    // 发送静态文件
+    await ctx.send(ctx, 'index.html', { root: 'static' })
+  })
+```
+### 发送JSON数据
+直接将ctx.body设置为json格式即可
+```javascript
+router
+  .get('/json', (ctx, next) => {
+    ctx.body = { test: 'json' }
+  })
+```
+### 读取post数据
+ctx.request.body就是post发送的数据
+```javascript
+router
+  .post('/post', (ctx, next) => {
+    ctx.body = ctx.request.body
+  })
+```
