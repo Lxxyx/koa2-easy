@@ -3,8 +3,8 @@
 所以基于Koa2订制了一套适合自己的模板。
 
 ## 启动
+Linux下加sudo
 ```
-npm i nodemon -g
 npm i
 npm run dev
 ```
