@@ -20,7 +20,7 @@ npm run pm2
 ### 模板渲染
 ```javascript
 router
-  .get('/', async(ctx, next) => {
+  .get('/', async (ctx, next) => {
     // 模板渲染，第一个参数为模板名称
     // 模板放置于views文件夹中
     await ctx.render('index', { title: 'Koa-Easy' })
@@ -29,7 +29,7 @@ router
 ### 发送静态HTML文件
 ```javascript
 router
-  .get('/index', async(ctx, next) => {
+  .get('/index', async (ctx, next) => {
     // 发送静态文件
     await ctx.send(ctx, 'index.html', { root: 'static' })
   })

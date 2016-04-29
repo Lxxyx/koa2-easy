@@ -14,7 +14,7 @@ import test from './router/test'
 const app = new Koa()
 
 // 全局错误处理
-app.use(async(ctx, next) => {
+app.use(async (ctx, next) => {
   try {
     await next()
   } catch (err) {
