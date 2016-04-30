@@ -66,6 +66,13 @@ router
 
 ### 读写数据库
 ```javascript
+// app.js
+// 连接数据库
+import mongoose from 'mongoose'
+mongoose.connect('mongodb://localhost/koa')
+```
+```javascript
+// router/test.js
 import mongoose from 'mongoose'
 
 let Cat = mongoose.model('Cat', {

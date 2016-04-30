@@ -11,6 +11,7 @@ import index from './router/index'
 import api from './router/api'
 import test from './router/test'
 
+// 连接数据库
 import mongoose from 'mongoose'
 mongoose.connect('mongodb://localhost/koa')
 
