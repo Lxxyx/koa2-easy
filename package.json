@@ -23,7 +23,8 @@
     "koa-static": "^2.0.0",
     "koa-views": "^5.0.1",
     "nodemon": "^1.9.1",
-    "mongoose": "^4.4.14"
+    "mongoose": "^4.4.14",
+    "koa-cors": "^0.0.16"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.5.0",

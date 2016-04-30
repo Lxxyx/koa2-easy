@@ -1,4 +1,5 @@
 import Koa from 'koa'
+import cors from 'koa-cors'
 import json from 'koa-json'
 import send from 'koa-send'
 import views from 'koa-views'
@@ -7,9 +8,11 @@ import logger from 'koa-logger'
 import convert from 'koa-convert'
 import bodyParser from 'koa-bodyparser'
 
+
 import index from './router/index'
 import api from './router/api'
 import test from './router/test'
+
 
 // 连接数据库
 import mongoose from 'mongoose'
@@ -29,6 +32,9 @@ app.use(async (ctx, next) => {
 
 // 记录所用方式与时间
 app.use(convert(logger()))
+
+// 设置跨域
+app.use(convert(cors()))
 
 // 传输JSON
 app.use(convert(json()));

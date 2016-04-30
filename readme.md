@@ -5,12 +5,11 @@
 ## 功能
 1. 渲染模板（EJS）
 2. 发送静态文件
-3. 编写Restful Api
-4. 编写自定义路由
-5. 避免回调地狱
-6. 调用数据库（Mongodb,Mongoose）
-7. 读取post数据
-8. 纯ES6/7编写，开箱即用，无需折腾
+3. 编写自定义路由，编写Restful Api，支持CORS跨域
+4. 读取post数据
+5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
+6. 调用数据库（Mongodb,Mongoose），需要提前安装mongodb
+7. 开箱即用，无需折腾
 
 ## 启动
 Linux下加sudo
@@ -30,6 +29,7 @@ npm run pm2
 
 ### 模板渲染
 ```javascript
+// router/index.js
 router
   .get('/', async (ctx, next) => {
     // 模板渲染，第一个参数为模板名称
@@ -39,6 +39,7 @@ router
 ```
 ### 发送静态HTML文件
 ```javascript
+// router/index.js
 router
   .get('/index', async (ctx, next) => {
     // 发送静态文件
@@ -48,6 +49,7 @@ router
 ### 发送JSON数据
 直接将ctx.body设置为json格式即可
 ```javascript
+// router/test.js
 router
   .get('/json', (ctx, next) => {
     ctx.body = { test: 'json' }
@@ -56,6 +58,7 @@ router
 ### 读取post数据
 ctx.request.body就是post发送的数据
 ```javascript
+// router/test.js
 router
   .post('/post', (ctx, next) => {
     ctx.body = ctx.request.body
