@@ -10,9 +10,11 @@
 5. 避免回调地狱
 6. 调用数据库（Mongodb,Mongoose）
 7. 读取post数据
+8. 纯ES6/7编写，开箱即用，无需折腾
 
 ## 启动
 Linux下加sudo
+只能使用如下两种方式启动（因为指定了babel-node来直接支持ES6）：
 ```
 npm i
 npm run dev
