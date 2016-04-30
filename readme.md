@@ -2,6 +2,15 @@
 因为Koa2已经在蓬勃发展中，且Express不太符合自己的需求。
 所以基于Koa2订制了一套适合自己的模板。
 
+## 功能
+1. 渲染模板（EJS）
+2. 发送静态文件
+3. 编写Restful Api
+4. 编写自定义路由
+5. 避免回调地狱
+6. 调用数据库（Mongodb,Mongoose）
+7. 读取post数据
+
 ## 启动
 Linux下加sudo
 ```
@@ -52,3 +61,30 @@ router
 ```
 ### 添加新路由
 按照router文件夹中范例编写，并在app.js中添加即可。
+
+### 读写数据库
+```javascript
+import mongoose from 'mongoose'
+
+let Cat = mongoose.model('Cat', {
+  name: String,
+  age: {
+    type: Number,
+    default: 0
+  }
+})
+
+router  
+  .post('/db', async (ctx, next) => {
+    ctx.body = await new Cat(ctx.request.body).save()
+  })
+  .post('/db/find', async (ctx, next) => {
+    let result = await Cat.find(ctx.request.body)
+    if (result.length === 0 ) {
+      ctx.status = 404
+      ctx.body = {error: "Not Found"}
+      return false
+    }
+    ctx.body = result
+  })
+```

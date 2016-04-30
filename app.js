@@ -11,6 +11,9 @@ import index from './router/index'
 import api from './router/api'
 import test from './router/test'
 
+import mongoose from 'mongoose'
+mongoose.connect('mongodb://localhost/koa')
+
 const app = new Koa()
 
 // 全局错误处理
