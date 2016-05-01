@@ -20,18 +20,17 @@ import mongoose from 'mongoose'
 mongoose.connect('mongodb://localhost/koa')
 
 const app = new Koa()
-
 // 全局错误处理
 app.use(async (ctx, next) => {
   try {
     await next()
   } catch (err) {
-    console.log(err)
     ctx.body = err
     ctx.status = err.status || 500
   }
 })
 
+// 使用自定义错误
 app.use(async (ctx, next) => {
   ctx.Err = KoaErr
   await next()
@@ -66,7 +65,7 @@ app.use(async (ctx, next) => {
 // 路由
 const router = new Router()
 
-router.use('/',index.routes())
+router.use('/', index.routes())
 router.use('/api', api.routes())
 router.use('/test', test.routes())
 
