@@ -9,9 +9,7 @@ let Cat = mongoose.model('Cat', {
   }
 })
 
-const router = new Router({
-  prefix: '/test'
-})
+const router = new Router()
 
 router
   .get('/json', (ctx, next) => {
@@ -21,11 +19,13 @@ router
     ctx.body = ctx.request.body
   })
 
-router  
-  .post('/db', async (ctx, next) => {
+const db = new Router()
+
+db  
+  .post('/', async (ctx, next) => {
     ctx.body = await new Cat(ctx.request.body).save()
   })
-  .post('/db/find', async (ctx, next) => {
+  .post('/find', async (ctx, next) => {
     let result = await Cat.find(ctx.request.body)
     if (result.length === 0 ) {
       ctx.status = 404
@@ -34,5 +34,7 @@ router
     }
     ctx.body = result
   })
+
+router.use('/db', db.routes())
 
 export default router

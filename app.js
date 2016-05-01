@@ -7,11 +7,13 @@ import serve from 'koa-static'
 import logger from 'koa-logger'
 import convert from 'koa-convert'
 import bodyParser from 'koa-bodyparser'
+import Router from 'koa-router'
 
 import index from './router/index'
 import api from './router/api'
 import test from './router/test'
 
+import { KoaErr } from './helper'
 
 // 连接数据库
 import mongoose from 'mongoose'
@@ -24,9 +26,15 @@ app.use(async (ctx, next) => {
   try {
     await next()
   } catch (err) {
-    ctx.body = { message: err.message }
+    console.log(err)
+    ctx.body = err
     ctx.status = err.status || 500
   }
+})
+
+app.use(async (ctx, next) => {
+  ctx.Err = KoaErr
+  await next()
 })
 
 // 记录所用方式与时间
@@ -56,10 +64,13 @@ app.use(async (ctx, next) => {
 })
 
 // 路由
-app
-  .use(index.routes())
-  .use(api.routes())
-  .use(test.routes())
+const router = new Router()
+
+router.use('/',index.routes())
+router.use('/api', api.routes())
+router.use('/test', test.routes())
+
+app.use(router.routes())
 
 app.listen(3000)
 
