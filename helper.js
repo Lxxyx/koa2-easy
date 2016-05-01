@@ -14,8 +14,8 @@ function extend (to, from) {
 }
 
 /**
- * @param  {Object}   默认的对象，包括错误信息与状态码
- * @param  {Object}   附加的说明与参数
+ * @param  {Object} default  默认的对象，包括错误信息与状态码
+ * @param  {Object} extra    附加的说明与参数
  */
 class KoaErr extends Error {
   constructor({ message = 'Error', status = 500 } = {}, ...args) {
