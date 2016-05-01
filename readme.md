@@ -13,8 +13,6 @@
 8. 开箱即用，无需折腾
 
 ## 启动
-Linux下加sudo
-只能使用如下两种方式启动（因为指定了babel-node来直接支持ES6）：
 ```
 npm i
 npm run dev
@@ -49,6 +47,7 @@ router
 ```
 ### 发送JSON数据
 直接将ctx.body设置为json格式即可
+
 ```javascript
 // router/test.js
 router
@@ -58,6 +57,7 @@ router
 ```
 ### 读取post数据
 ctx.request.body就是post发送的数据
+
 ```javascript
 // router/test.js
 router
@@ -70,12 +70,16 @@ router
 
 ### 错误处理
 添加了自定义错误，调用时使用ctx.Err。
+
 ```javascript
 // router/api/user.js
-// 一般错误处理，message和status为必须选项，否则为默认的Error与500
+// 一般错误处理，message和status为必须选项，否则为默认的Error与500。status为http状态码
 throw new ctx.Err({ message: '用户已存在', status: 400})
+// 用户收到的信息： {"message": "用户已存在","status": 400"}
+
 // 附加额外错误信息，写在第二个对象里就行
 throw new ctx.Err({ message: '用户已存在', status: 400}, {'error': true})
+// 用户收到的信息： {"message": "用户已存在","status": 400","error": true}
 ```
 ### 读写数据库
 
