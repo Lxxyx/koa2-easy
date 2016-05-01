@@ -5,11 +5,12 @@
 ## 功能
 1. 渲染模板（EJS）
 2. 发送静态文件
-3. 编写自定义路由，编写Restful Api，支持CORS跨域
+3. 编写自定义路由与Restful Api，支持CORS跨域
 4. 读取post数据
 5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
 6. 调用数据库（Mongodb,Mongoose），需要提前安装mongodb
-7. 开箱即用，无需折腾
+7. 自定义错误，可附加丰富的信息
+8. 开箱即用，无需折腾
 
 ## 启动
 Linux下加sudo
@@ -67,7 +68,17 @@ router
 ### 添加新路由
 按照router文件夹中范例编写，并在app.js中添加即可。
 
+### 错误处理
+添加了自定义错误，调用时使用ctx.Err。
+```javascript
+// router/api/user.js
+// 一般错误处理，message和status为必须选项，否则为默认的Error与500
+throw new ctx.Err({ message: '用户已存在', status: 400})
+// 附加额外错误信息，写在第二个对象里就行
+throw new ctx.Err({ message: '用户已存在', status: 400}, {'error': true})
+```
 ### 读写数据库
+
 ```javascript
 // app.js
 // 连接数据库
