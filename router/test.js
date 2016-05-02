@@ -15,6 +15,9 @@ router
   .get('/json', (ctx, next) => {
     ctx.body = { test: 'json' }
   })
+  .get('/', (ctx, next) => {
+    ctx.body = "this is test"
+  })
   .post('/post', (ctx, next) => {
     ctx.body = ctx.request.body
   })
