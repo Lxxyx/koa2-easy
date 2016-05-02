@@ -13,6 +13,12 @@
 8. 开箱即用，无需折腾
 
 ## 启动
+需要提前安装mongodb
+ubuntu:
+```
+sudo apt-get install mongodb -y
+```
+
 ```
 npm i
 npm run dev
@@ -22,6 +28,12 @@ npm run dev
 npm i pm2 -g
 npm run pm2
 ```
+
+### 配合Nginx实现反向代理（可选）
+推荐使用[VeryNginx](https://github.com/alexazhou/VeryNginx)实现。
+> 具体配置（需要先安装VeryNginx）：
+先配置一个 Matcher ： host=app.xxxx.com ，用来提取出来所有访问 host 为 **app.xxxx.com** 的请求 
+然后配置 Proxy Pass 把这个请求转发到 127.0.0.1:3000 就可以了
 
 ## 使用
 需要具有ES6基础。
