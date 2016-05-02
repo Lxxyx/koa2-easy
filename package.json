@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js --exec babel-node",
-    "pm2": "pm2 start app.js --interpreter babel-node"
+    "pm2": "pm2 start app.js --watch --interpreter babel-node"
   },
   "keywords": [],
   "author": "",
