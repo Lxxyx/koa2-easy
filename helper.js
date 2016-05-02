@@ -4,13 +4,29 @@
  * @param  {Object} from 被安装的对象
  * @return {Object}      安装完成的对象
  */
-function extend (to, from) {
+function extend(to, from) {
   let keys = Object.keys(from)
   let i = keys.length
   while (i--) {
     to[keys[i]] = from[keys[i]]
   }
   return to
+}
+
+/**
+ * 生成随机字符串
+ * @param  {Number} len 要生成的长度
+ * @return {String}     生成的随机字符串
+ */
+function randomString(len) {　　
+  len = len || 5
+  let chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
+  let maxPos = chars.length
+  let pwd = ''
+  for (let i = 0; i < len; i++) {
+    pwd += chars.charAt(Math.floor(Math.random() * maxPos))
+  }
+  return pwd
 }
 
 /**
@@ -31,5 +47,6 @@ class KoaErr extends Error {
 
 export {
   KoaErr,
-  extend
+  extend,
+  randomString
 }

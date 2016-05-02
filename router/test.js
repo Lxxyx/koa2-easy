@@ -23,14 +23,19 @@ const db = new Router()
 
 db  
   .post('/', async (ctx, next) => {
+    let isExist = await User.find({name: ctx.request.body.name}).length !== 0
+    if (isExist) {
+      throw new ctx.Err({ message: '用户已存在', status: 400})
+    }
     ctx.body = await new Cat(ctx.request.body).save()
   })
   .post('/find', async (ctx, next) => {
     let result = await Cat.find(ctx.request.body)
     if (result.length === 0 ) {
-      ctx.status = 404
-      ctx.body = {error: "Not Found"}
-      return false
+      throw new ctx.Err({
+        message: '找不到用户',
+        status: 404
+      })
     }
     ctx.body = result
   })

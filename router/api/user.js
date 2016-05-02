@@ -1,5 +1,7 @@
 import Router from 'koa-router'
 import User from './../../models/user'
+import login from './login'
+import register from './register'
 
 const router = new Router()
 
@@ -14,5 +16,8 @@ router
     }
     ctx.body = await new User(ctx.request.body).save()
   })
+
+router.use('/login', login.routes())
+router.use('/register', register.routes())
 
 export default router
