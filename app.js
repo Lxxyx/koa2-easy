@@ -71,8 +71,5 @@ router.use('/test', test.routes())
 
 app.use(router.routes())
 
-let args = process.argv.slice(2)
-let port = args.findIndex(n => n === '-p')
-
 app.listen(process.env.PORT || 3000)
 console.log(`Server up and running! On port ${process.env.PORT || 3000}!`);
