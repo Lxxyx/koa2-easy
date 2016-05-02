@@ -16,9 +16,9 @@ let userSchema = mongoose.Schema({
     type: Number,
     default: 2014
   },
-  studentId: Number
+  studentId: Number,
+  avatar: String
 })
-
 
 const User = mongoose.model('user', userSchema)
 
