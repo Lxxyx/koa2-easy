@@ -13,7 +13,7 @@
 8. 开箱即用，无需折腾
 
 ## 启动
-需要提前安装mongodb
+需要提前安装mongodb 
 ubuntu:
 ```
 sudo apt-get install mongodb -y
