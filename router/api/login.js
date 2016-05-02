@@ -3,8 +3,8 @@ import User from './../../models/user'
 
 const login = new Router()
 
-login.get('/', async (ctx, next) => {
-
+login.post('/', async (ctx, next) => {
+  let user = ctx.request.body
 })
 
 export default login

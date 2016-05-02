@@ -13,21 +13,28 @@
 8. 开箱即用，无需折腾
 
 ## 启动
-需要提前安装mongodb 
-ubuntu:
+需要提前安装mongodb  
+ubuntu:  
 ```
 sudo apt-get install mongodb -y
 ```
-
+### 开发模式
+检测到文件变动，会自动重启服务器
 ```
 npm i
 npm run dev
 ```
-## 服务器部署
+### 服务器部署
 ```
 npm i pm2 -g
 npm run pm2
 ```
+### 指定端口启动
+```
+PORT=8000 npm run dev
+PORT=8000 npm run pm2
+```
+把8000替换成任何你想使用的端口即可
 
 ### 配合Nginx实现反向代理（可选）
 推荐使用[VeryNginx](https://github.com/alexazhou/VeryNginx)实现。
