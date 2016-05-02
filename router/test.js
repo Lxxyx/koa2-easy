@@ -21,7 +21,10 @@ router
 
 const db = new Router()
 
-db  
+db
+  .get('/', async (ctx,next) => {
+    ctx.body = 'hello this is db test'
+  })
   .post('/', async (ctx, next) => {
     let isExist = await User.find({name: ctx.request.body.name}).length !== 0
     if (isExist) {
