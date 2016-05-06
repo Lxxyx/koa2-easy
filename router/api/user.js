@@ -10,11 +10,15 @@ router
     ctx.body = "Hello This is User api"
   })
   .post('/', async (ctx, next) => {
-    let isExist = await User.find({name: ctx.request.body.name}).length !== 0 
-    if (isExist) {
-      throw new ctx.Err({ message: '用户已存在', status: 400})
-    }
+    // let isExist = await User.find({name: ctx.request.body.name}).length !== 0 
+    // if (isExist) {
+    //   throw new ctx.Err({ message: '用户已存在', status: 400})
+    // }
+    
     ctx.body = await new User(ctx.request.body).save()
+  })
+  .post('/find', async (ctx, next) => {
+    ctx.body = await User.find({username: ctx.request.body.username})
   })
 
 router.use('/login', login.routes())

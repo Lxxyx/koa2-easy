@@ -17,7 +17,7 @@ import { KoaErr } from './helper'
 
 // 连接数据库
 import mongoose from 'mongoose'
-// mongoose.connect('mongodb://localhost/koa')
+mongoose.connect('mongodb://localhost/koa')
 
 const app = new Koa()
 // 全局错误处理
