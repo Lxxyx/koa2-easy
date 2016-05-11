@@ -10,7 +10,8 @@
 5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
 6. 调用数据库（Mongodb,Mongoose），需要提前安装mongodb
 7. 自定义错误，可附加错误信息
-8. 开箱即用，无需折腾
+8. 默认支持gzip，减少传输体积，加快传输速度
+9. 开箱即用，无需折腾
 
 ## 启动
 需要提前安装mongodb  
@@ -19,7 +20,7 @@ ubuntu:
 sudo apt-get install mongodb -y
 ```
 ### 开发模式
-检测到文件变动，会自动重启服务器
+检测到文件变动，会自动重启服务器  
 ```
 npm i
 npm run dev

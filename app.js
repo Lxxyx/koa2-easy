@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import cors from 'koa-cors'
+import compress from 'koa-compress'
 import json from 'koa-json'
 import send from 'koa-send'
 import views from 'koa-views'
@@ -38,6 +39,12 @@ app.use(async (ctx, next) => {
 
 // 记录所用方式与时间
 app.use(convert(logger()))
+
+// 设置gzip
+app.use(compress({
+  threshold: 2048,
+  flush: require('zlib').Z_SYNC_FLUSH
+}))
 
 // 设置跨域
 app.use(convert(cors()))
