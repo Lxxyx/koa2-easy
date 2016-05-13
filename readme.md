@@ -5,19 +5,18 @@
 ## 功能
 1. 渲染模板（EJS）
 2. 发送静态文件，如HTML文件。
-3. 编写自定义路由与Restful Api，支持CORS跨域
+3. 编写自定义路由与Restful Api，默认支持CORS跨域
 4. 读取post数据
 5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
-6. 调用数据库（Mongodb,Mongoose），需要提前安装mongodb
-7. 自定义错误，可附加错误信息
-8. 默认支持gzip，减少传输体积，加快传输速度
-9. 开箱即用，无需折腾
+6. 自定义错误，可附加错误信息
+7. 默认支持gzip，减少传输体积，加快传输速度
+8. 开箱即用，无需折腾
 
 ## 启动
-需要提前安装mongodb  
-ubuntu:  
+直接运行run.js即可  
+因为Koa2使用babel和ES7的Async/Await，所以需要使用babel转译启动
 ```
-sudo apt-get install mongodb -y
+node run.js
 ```
 ### 开发模式
 检测到文件变动，会自动重启服务器  
@@ -100,38 +99,4 @@ throw new ctx.Err({ message: '用户已存在', status: 400})
 // 附加额外错误信息，写在第二个对象里就行
 throw new ctx.Err({ message: '用户已存在', status: 400}, {'error': true})
 // 用户收到的信息： {"message": "用户已存在","status": 400","error": true}
-```
-### 读写数据库
-
-```javascript
-// app.js
-// 连接数据库
-import mongoose from 'mongoose'
-mongoose.connect('mongodb://localhost/koa')
-```
-```javascript
-// router/test.js
-import mongoose from 'mongoose'
-
-let Cat = mongoose.model('Cat', {
-  name: String,
-  age: {
-    type: Number,
-    default: 0
-  }
-})
-
-router  
-  .post('/db', async (ctx, next) => {
-    ctx.body = await new Cat(ctx.request.body).save()
-  })
-  .post('/db/find', async (ctx, next) => {
-    let result = await Cat.find(ctx.request.body)
-    if (result.length === 0 ) {
-      ctx.status = 404
-      ctx.body = {error: "Not Found"}
-      return false
-    }
-    ctx.body = result
-  })
 ```
