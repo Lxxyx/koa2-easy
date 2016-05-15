@@ -33,6 +33,12 @@ app.use(async (ctx, next) => {
   await next()
 })
 
+// 设置Header
+app.use(async (ctx, next) => {
+  await next()
+  ctx.set('X-Powered-By', 'Koa2-Easy')
+})
+
 // 设置gzip
 app.use(compress({
   threshold: 2048,
