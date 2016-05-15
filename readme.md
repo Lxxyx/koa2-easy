@@ -91,7 +91,6 @@ router
 添加了自定义错误，调用时使用ctx.Err。
 
 ```javascript
-// router/api/user.js
 // 一般错误处理，message和status为必须选项，否则为默认的Error与500。status为http状态码
 throw new ctx.Err({ message: '用户已存在', status: 400})
 // 用户收到的信息： {"message": "用户已存在","status": 400"}
