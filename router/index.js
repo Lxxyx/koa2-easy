@@ -9,7 +9,7 @@ router
   })
   .get('/index', async (ctx, next) => {
     // 发送静态文件
-    await ctx.send(ctx, 'index.html', { root: 'static' })
+    await ctx.send(ctx, 'index.html', { root: 'static/index' })
   })
-
+  
 export default router

@@ -11,37 +11,36 @@ body {
 }
 
 body {
+  font-family: 'Helvetica Neue', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'STHeiti', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-wrap: wrap;
   align-content: center;
-  font-family: "Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 
 .row {
-  margin-top: 24px;
   display: flex;
+  margin-top: 24px;
   flex-basis: 100%;
   justify-content: center;
 }
 
 .button {
+  font-size: 24px;
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
   width: 196px;
   height: 80px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+  transition: .7s linear;
   text-decoration: none;
-  font-size: 24px;
   color: #9e9e9e;
-  transition: 0.7s linear;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
-  border: 1px solid #bbbbbb;
   color: #8e8e8e;
+  border: 1px solid #bbb;
   box-shadow: 1px 1px 10px #9e9e9e;
 }

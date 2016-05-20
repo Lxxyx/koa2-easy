@@ -64,6 +64,14 @@ router
     await ctx.send(ctx, 'index.html', { root: 'static' })
   })
 ```
+### HTML文件中，静态文件的路径处理
+把HTML文件放入static文件夹中。单独开辟文件夹。
+如首页index.html，则放入/static/index文件夹。
+引用CSS等文件时，需加入文件夹名称。
+```html
+<!-- /static/index/index.html -->
+<link rel="stylesheet" type="text/css" href="/index/css/index.css">
+```
 ### 发送JSON数据
 直接将ctx.body设置为json格式即可
 
@@ -86,6 +94,27 @@ router
 ```
 ### 添加新路由
 按照router文件夹中范例编写，并在app.js中添加即可。
+
+```javascript
+// 添加/api路由
+
+// 将api前缀设置为/api
+const router = new Router({
+  prefix: '/api'
+})
+
+// 对Api进行操作
+router
+  .get('/', (ctx, next) => {
+    ctx.body = "This is Api page"
+  })
+```
+
+```javascript
+// 在app.js中引用
+import api from './router/api'
+app.use(api.routes())
+```
 
 ### 错误处理
 添加了自定义错误，调用时使用ctx.Err。
