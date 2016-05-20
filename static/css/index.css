@@ -1,18 +1,22 @@
 * {
-  margin: 0;  
+  margin: 0;
   padding: 0;
 }
-html,body {
+
+html,
+body {
   width: 100%;
   height: 100%;
   background: -webkit-linear-gradient(top, #fff, #e4e4e4);
 }
+
 body {
   display: flex;
   justify-content: center;
   /* align-items: center; */
   flex-wrap: wrap;
   align-content: center;
+  font-family: "Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 
 .row {
@@ -37,7 +41,7 @@ body {
 }
 
 .button:hover {
-  border:1px solid #bbbbbb;
+  border: 1px solid #bbbbbb;
   color: #8e8e8e;
   box-shadow: 1px 1px 10px #9e9e9e;
 }
