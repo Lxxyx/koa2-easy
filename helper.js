@@ -2,7 +2,7 @@
  * 把另一个对象的属性安装到指定的对象中
  * @param  {Object} to   指定的对象
  * @param  {Object} from 被安装的对象
- * @return {Object}      安装完成的对象
+ * @return {Object} to   安装完成的对象
  */
 function extend(to, from) {
   let keys = Object.keys(from)
@@ -16,7 +16,7 @@ function extend(to, from) {
 /**
  * 生成随机字符串
  * @param  {Number} len 要生成的长度
- * @return {String}     生成的随机字符串
+ * @return {String} pwd 生成的随机字符串
  */
 function randomString(len) {　　
   len = len || 5
