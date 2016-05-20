@@ -1,6 +1,8 @@
 import Router from 'koa-router'
 
-const router = new Router()
+const router = new Router({
+  prefix: '/test'
+})
 
 router
   .get('/json', (ctx, next) => {

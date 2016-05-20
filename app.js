@@ -72,13 +72,9 @@ app.use(async (ctx, next) => {
 })
 
 // 路由
-const router = new Router()
-
-router.use('/', index.routes())
-router.use('/api', api.routes())
-router.use('/test', test.routes())
-
-app.use(router.routes())
+app.use(index.routes())
+app.use(api.routes())
+app.use(test.routes())
 
 app.listen(process.env.PORT || 3000)
 console.log(`Server up and running! On port ${process.env.PORT || 3000}!`);
