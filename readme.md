@@ -1,7 +1,10 @@
 ## 起因
-因为Koa2已经在蓬勃发展中，且Express不太符合自己的需求。
-所以基于Koa2订制了一套适合自己的模板。
+因为Koa2已经在蓬勃发展中，Async/Await能切实的避免回调地狱。所以基于Koa2订制了一套模板。
+Git clone，开箱即用。
 
+```git
+git clone https://github.com/Lxxyx/koa2-easy.git
+```
 ## 功能
 1. 渲染模板（EJS）
 2. 发送静态文件，如HTML文件。
@@ -14,7 +17,7 @@
 
 ## 启动
 直接运行run.js即可  
-因为Koa2使用babel和ES7的Async/Await，所以需要使用babel转译启动
+因为Koa2使用babel和ES7的Async/Await，所以需要使用babel转译启动，所以必须运行run.js，而非app.js。   
 ```
 node run.js
 ```
