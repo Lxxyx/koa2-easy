@@ -63,7 +63,7 @@ app.use(views(__dirname + '/views', {
 }))
 
 // 静态文件夹
-app.use(convert(serve(__dirname)))
+app.use(convert(serve(__dirname + '/static/')))
 
 // 发送文件，如HTML
 app.use(async (ctx, next) => {
