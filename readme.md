@@ -81,9 +81,8 @@ router
   })
 ```
 ### HTML文件中，静态文件的路径处理
-把HTML文件放入static文件夹中。单独开辟文件夹。
-如首页index.html，则放入/static/index文件夹。
-引用CSS等文件时，需加入文件夹名称。
+把HTML文件放入static文件夹中。单独开辟文件夹。  
+如首页index.html，则放入/static/index文件夹。引用CSS等文件时，需加入文件夹名称。
 ```html
 <!-- /static/index/index.html -->
 <link rel="stylesheet" type="text/css" href="/index/css/index.css">
