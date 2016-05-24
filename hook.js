@@ -24,7 +24,6 @@ router
     ctx.body = 'This is deploy page!'
   })
   .post('/github', async ctx => {
-    console.log(ctx.request.body)
     new Task('pm2 stop run.js')
     .then('git pull')
     .then('cnpm i')
