@@ -1,6 +1,7 @@
 import Koa from 'koa'
 import Task from 'shell-task'
 import bodyParser from 'koa-bodyparser'
+import convert from 'koa-convert'
 import Router from 'koa-router'
 
 const app = new Koa()
