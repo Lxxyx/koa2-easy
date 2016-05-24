@@ -21,7 +21,7 @@ const router = new Router()
 
 router
   .get('/', async ctx => {
-    ctx.body = 'This is deploy page!!!'
+    ctx.body = 'This is deploy page!!!!'
   })
   .post('/github', async ctx => {
     new Task('pm2 stop run.js')
