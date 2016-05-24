@@ -52,10 +52,10 @@ app.use(convert(logger()))
 app.use(convert(cors()))
 
 // 传输JSON
-app.use(convert(json()));
+app.use(convert(json()))
 
 // body解析
-app.use(convert(bodyParser()));
+app.use(convert(bodyParser()))
 
 // 设置渲染引擎
 app.use(views(__dirname + '/views', {
