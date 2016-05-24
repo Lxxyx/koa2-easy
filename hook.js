@@ -32,8 +32,10 @@ router
       if (err) {
         console.log(err)
       } else {
+        ctx.body = 'Deploy Done!'
         console.log('Deploy Done!')
       }
+      return true
     })
   })
 

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon run.js",
     "pm2": "pm2 start run.js",
-    "pm2hook": "pm2 start run.js && pm2 start runhook.js"
+    "pm2hook": "pm2 start run.js && nohup node runhook.js &"
   },
   "keywords": [
     "koa2",
