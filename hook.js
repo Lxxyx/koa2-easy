@@ -19,20 +19,26 @@ app.use(convert(bodyParser()))
 
 const router = new Router()
 
-router.post('/github', async ctx => {
-  console.log(ctx.request.body)
-  new Task('pm2 stop run.js')
-  .then('git pull')
-  .then('cnpm i')
-  .then('pm2 start run.js')
-  .run(err => {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log('Deploy Done!')
-    }
+router
+  .get('/', async ctx => {
+    ctx.body = 'This is deploy page'
   })
-})
+  .post('/github', async ctx => {
+    console.log(ctx.request.body)
+    new Task('pm2 stop run.js')
+    .then('git pull')
+    .then('cnpm i')
+    .then('pm2 start run.js')
+    .run(err => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('Deploy Done!')
+      }
+    })
+  })
+
+app.use(router.routes())
 
 app.listen(process.env.PORT || 8080)
 console.log(`Github Hook is running! On port ${process.env.PORT || 8080}!`);
