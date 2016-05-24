@@ -26,7 +26,7 @@ router
   .post('/github', async ctx => {
     new Task('pm2 stop run.js')
     .then('git pull')
-    .then('cnpm i')
+    .then('npm i')
     .then('pm2 start run.js')
     .run(err => {
       if (err) {
