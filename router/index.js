@@ -11,7 +11,7 @@ router
     // 发送静态文件
     await ctx.send(ctx, 'index.html', { root: 'static/index' })
   })
-  .get('/hookTest', async (ctx, next) => {
+  .get('/hookTest2', async (ctx, next) => {
     // 发送静态文件
     await ctx.send(ctx, 'index.html', { root: 'static/index' })
   })
