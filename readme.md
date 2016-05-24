@@ -50,9 +50,9 @@ PORT=8000 npm run pm2
 ### 自动部署
 **默认部署端口为8080，如冲突请去hook.js中更改**
 
-在Github的repo的settings中设置webhook。
-地址设置为你线上部署地址，如:'www.ncuhr.win:8080/github'。(可进hook.js中更改)
-运行命令：
+在Github的repo的settings中设置webhook。  
+地址设置为你线上部署地址，如:`www.ncuhr.win:8080/github`。  (可进hook.js中更改)  
+运行命令： 
 ```
 npm run pm2hook
 ```
