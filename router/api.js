@@ -1,12 +1,12 @@
 import Router from 'koa-router'
 
-const router = new Router({
+const api = new Router({
   prefix: '/api'
 })
 
-router
+api
   .get('/', (ctx, next) => {
     ctx.body = "This is Api page"
   })
 
-export default router
+export default api

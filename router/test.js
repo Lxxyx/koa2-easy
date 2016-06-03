@@ -1,10 +1,10 @@
 import Router from 'koa-router'
 
-const router = new Router({
+const test = new Router({
   prefix: '/test'
 })
 
-router
+test
   .get('/json', (ctx, next) => {
     ctx.body = {
       test: 'json'
@@ -17,4 +17,4 @@ router
     ctx.body = ctx.request.body
   })
 
-export default router
+export default test

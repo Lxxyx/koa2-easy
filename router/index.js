@@ -1,8 +1,8 @@
 import Router from 'koa-router'
 
-const router = new Router()
+const index = new Router()
 
-router
+index
   .get('/', async (ctx, next) => {
     // 渲染模板
     await ctx.render('index', { title: 'Koa2-Easy' })
@@ -11,9 +11,5 @@ router
     // 发送静态文件
     await ctx.send(ctx, 'index.html', { root: 'static/index' })
   })
-  .get('/hookTest2', async (ctx, next) => {
-    // 发送静态文件
-    await ctx.send(ctx, 'index.html', { root: 'static/index' })
-  })
   
-export default router
+export default index
