@@ -54,7 +54,7 @@ app.use(convert(cors()))
 app.use(convert(json()))
 
 // body解析
-app.use(convert(bodyParser()))
+app.use(bodyParser())
 
 // 设置渲染引擎
 app.use(views(__dirname + '/views', {
