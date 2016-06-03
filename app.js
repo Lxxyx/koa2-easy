@@ -8,7 +8,6 @@ import serve from 'koa-static'
 import logger from 'koa-logger'
 import convert from 'koa-convert'
 import bodyParser from 'koa-bodyparser'
-import Router from 'koa-router'
 
 import index from './router/index'
 import api from './router/api'
