@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const fs = require('fs-extra')
+
+const template = process.execPath.replace('bin/node', 'lib/node_modules/koa2/template')
+
+const koa2 = `${process.cwd()}/koa2`
+
+try {
+  fs.copySync(template, koa2)
+  console.log(`Generate koa2-easy at ${koa2}`)
+  console.log('cd koa2 && npm install')
+  console.log('use npm run dev to start it')
+} catch (e) {
+  console.error(e)
+}
