@@ -6,6 +6,10 @@
   "bin": {
     "koa2": "bin/koa2"
   },
+  "scripts": {
+    "patch": "npm version patch && npm publish && cnpm sync",
+    "minor": "npm version minor && npm publish && cnpm sync"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lxxyx/koa2-easy.git"
