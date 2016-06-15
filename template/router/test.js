@@ -11,7 +11,7 @@ test
     }
   })
   .get('/', (ctx, next) => {
-    ctx.body = "this is test page!"
+    ctx.body = 'this is test page!'
   })
   .post('/post', (ctx, next) => {
     ctx.body = ctx.request.body

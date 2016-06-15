@@ -76,4 +76,4 @@ app.use(api.routes())
 app.use(test.routes())
 
 app.listen(process.env.PORT || 3000)
-console.log(`Server up and running! On port ${process.env.PORT || 3000}!`);
+console.log(`Server up and running! On port ${process.env.PORT || 3000}!`)

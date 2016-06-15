@@ -6,7 +6,7 @@ const api = new Router({
 
 api
   .get('/', (ctx, next) => {
-    ctx.body = "This is Api page"
+    ctx.body = 'This is Api page'
   })
 
 export default api
