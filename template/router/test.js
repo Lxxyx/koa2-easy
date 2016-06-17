@@ -6,18 +6,18 @@ const test = new Router({
 })
 
 test
-  .get('/json', (ctx, next) => {
+  .get('/json', ctx => {
     ctx.body = {
       test: 'json'
     }
   })
-  .get('/', (ctx, next) => {
+  .get('/', ctx => {
     ctx.body = 'this is test page!'
   })
-  .post('/post', (ctx, next) => {
+  .post('/post', ctx => {
     ctx.body = ctx.request.body
   })
-  .post('/file', upload.single('avatar'), async (ctx, next) => {
+  .post('/file', upload.single('avatar'), async ctx => {
     ctx.body = ctx.req.file
   })
 

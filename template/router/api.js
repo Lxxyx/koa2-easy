@@ -5,7 +5,7 @@ const api = new Router({
 })
 
 api
-  .get('/', (ctx, next) => {
+  .get('/', ctx => {
     ctx.body = 'This is Api page'
   })
 
