@@ -1,4 +1,5 @@
 import Router from 'koa-router'
+import { upload } from './../helper'
 
 const test = new Router({
   prefix: '/test'
@@ -15,6 +16,9 @@ test
   })
   .post('/post', (ctx, next) => {
     ctx.body = ctx.request.body
+  })
+  .post('/file', upload.single('avatar'), async (ctx, next) => {
+    ctx.body = ctx.req.file
   })
 
 export default test

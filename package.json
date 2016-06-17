@@ -28,7 +28,9 @@
     "fs-extra": "^0.30.0"
   },
   "devDependencies": {
+    "babel-eslint": "^6.0.4",
     "eslint": "^2.12.0",
-    "babel-eslint": "^6.0.4"
+    "eslint-config-vue": "^1.0.3",
+    "eslint-plugin-vue": "^0.1.1"
   }
 }
