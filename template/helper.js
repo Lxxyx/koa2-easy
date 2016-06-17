@@ -45,23 +45,26 @@ export class KoaErr extends Error {
 }
 
 /**
- * 上传文件
+ * 上传文件设置
  * @type {Object}
  */
+import path from 'path'
 import multer from 'koa-multer'
+import mkdirp from 'mkdirp-then'
 import fsp from 'fs-promise'
 
 const storage = multer.diskStorage({
   async destination (req, file, cb) {
-    const dir = `upload/${file.fieldname}/`
+    const dir = path.resolve('upload', file.fieldname)
     const exists = await fsp.exists(dir)
     if (!exists) {
-      await fsp.mkdir(dir)
+      await mkdirp(dir)
     }
     cb(null, dir)
   },
   filename (req, file, cb) {
-    cb(null, `${file.fieldname}-${file.originalname}`)
+    const { name, ext } = path.parse(file.originalname)
+    cb(null, `${name}-${randomString(4)}${ext}`)
   }
 })
 
