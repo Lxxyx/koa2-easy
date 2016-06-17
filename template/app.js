@@ -8,6 +8,7 @@ import serve from 'koa-static'
 import logger from 'koa-logger'
 import convert from 'koa-convert'
 import bodyParser from 'koa-bodyparser'
+import path from 'path'
 
 import index from './router/index'
 import api from './router/api'
@@ -16,6 +17,7 @@ import test from './router/test'
 import { KoaErr } from './helper'
 
 const app = new Koa()
+
 // 全局错误处理
 app.use(async (ctx, next) => {
   try {
@@ -57,12 +59,12 @@ app.use(convert(json()))
 app.use(bodyParser())
 
 // 设置渲染引擎
-app.use(views(__dirname + '/views', {
+app.use(views(path.resolve(__dirname, 'views'), {
   extension: 'ejs'
 }))
 
 // 静态文件夹
-app.use(convert(serve(__dirname + '/static/')))
+app.use(convert(serve(path.resolve(__dirname, 'static'))))
 
 // 发送文件，如HTML
 app.use(async (ctx, next) => {

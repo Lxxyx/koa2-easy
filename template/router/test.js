@@ -1,20 +1,24 @@
 import Router from 'koa-router'
+import { upload } from './../helper'
 
 const test = new Router({
   prefix: '/test'
 })
 
 test
-  .get('/json', (ctx, next) => {
+  .get('/json', ctx => {
     ctx.body = {
       test: 'json'
     }
   })
-  .get('/', (ctx, next) => {
+  .get('/', ctx => {
     ctx.body = 'this is test page!'
   })
-  .post('/post', (ctx, next) => {
+  .post('/post', ctx => {
     ctx.body = ctx.request.body
+  })
+  .post('/file', upload.single('avatar'), async ctx => {
+    ctx.body = ctx.req.file
   })
 
 export default test
