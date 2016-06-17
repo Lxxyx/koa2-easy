@@ -4,7 +4,7 @@ const fs = require('fs-extra')
 
 const template = process.execPath.replace('bin/node', 'lib/node_modules/koa2-easy/template')
 
-const koa2 = `${process.cwd()}/koa2`
+const koa2 = `${process.cwd()}/koa2-easy`
 
 try {
   fs.copySync(template, koa2)
