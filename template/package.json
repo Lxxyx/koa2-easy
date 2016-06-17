@@ -38,5 +38,11 @@
     "koa-static": "^2.0.0",
     "koa-views": "^5.0.1",
     "nodemon": "^1.9.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "eslint": "^2.12.0",
+    "eslint-config-vue": "^1.0.3",
+    "eslint-plugin-vue": "^0.1.1"
   }
 }
