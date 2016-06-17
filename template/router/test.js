@@ -20,5 +20,8 @@ test
   .post('/file', upload.single('avatar'), async ctx => {
     ctx.body = ctx.req.file
   })
+  .post('/files', upload.any(), async ctx => {
+    ctx.body = ctx.req.files
+  })
 
 export default test
