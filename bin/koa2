@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require('fs-extra')
+const path = require('path')
 
-const template = process.execPath.replace('bin/node', 'lib/node_modules/koa2-easy/template')
+const template = path.join(__dirname, '..', 'template')
 
 const koa2 = `${process.cwd()}/koa2-easy`
 
