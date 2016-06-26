@@ -6,6 +6,8 @@
 npm i koa2-easy -g
 
 koa2
+
+cd koa2-easy && npm i （推荐使用cnpm）
 ```
 ## 功能
 1. 渲染模板（EJS）
