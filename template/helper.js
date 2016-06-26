@@ -55,7 +55,11 @@ import fsp from 'fs-promise'
 
 const storage = multer.diskStorage({
   async destination (req, file, cb) {
-    const dir = path.resolve('upload', file.fieldname)
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = now.getMonth() + 1
+    const day = now.getDate()
+    const dir = path.resolve('upload', `${year}-${month}-${day}`, file.fieldname)
     const exists = await fsp.exists(dir)
     if (!exists) {
       await mkdirp(dir)
@@ -64,7 +68,7 @@ const storage = multer.diskStorage({
   },
   filename (req, file, cb) {
     const { name, ext } = path.parse(file.originalname)
-    cb(null, `${name}-${randomString(4)}${ext}`)
+    cb(null, `${name}-${randomString(2)}-${ext}`)
   }
 })
 
