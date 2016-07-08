@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
-    "eslint": "^2.12.0",
+    "eslint": "^3.0.1",
     "eslint-config-vue": "^1.0.3",
     "eslint-plugin-vue": "^0.1.1"
   }

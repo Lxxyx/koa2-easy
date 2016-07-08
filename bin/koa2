@@ -10,7 +10,7 @@ const koa2 = `${process.cwd()}/koa2-easy`
 try {
   fs.copySync(template, koa2)
   console.log(`Generate koa2-easy at ${koa2}`)
-  console.log('cd koa2 && npm install')
+  console.log('cd koa2-easy && npm install')
   console.log('use npm run dev to start it')
 } catch (e) {
   console.error(e)
