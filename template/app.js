@@ -61,7 +61,7 @@ app.use(bodyParser())
 
 
 // 设置渲染引擎
-app.use(convert(artTemplate(path.resolve(__dirname, 'views'))))
+app.use(artTemplate(path.resolve(__dirname, 'views')))
 
 // 静态文件夹
 app.use(convert(serve(path.resolve(__dirname, 'static'))))
