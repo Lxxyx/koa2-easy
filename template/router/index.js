@@ -5,7 +5,7 @@ const index = new Router()
 index
   .get('/', async ctx => {
     // 渲染模板
-    await ctx.render('index', { title: 'Koa2-Easy' })
+    ctx.body = ctx.render('index', { title: 'Koa2-Easy' })
   })
   .get('/index', async ctx => {
     // 发送静态文件

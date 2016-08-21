@@ -7,6 +7,7 @@ import views from 'koa-views'
 import serve from 'koa-static'
 import logger from 'koa-logger'
 import convert from 'koa-convert'
+import artTemplate from 'koa-artTemplate'
 import bodyParser from 'koa-bodyparser'
 import path from 'path'
 
@@ -58,10 +59,9 @@ app.use(convert(json()))
 // body解析
 app.use(bodyParser())
 
+
 // 设置渲染引擎
-app.use(views(path.resolve(__dirname, 'views'), {
-  extension: 'ejs'
-}))
+app.use(convert(artTemplate(path.resolve(__dirname, 'views'))))
 
 // 静态文件夹
 app.use(convert(serve(path.resolve(__dirname, 'static'))))

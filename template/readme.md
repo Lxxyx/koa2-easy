@@ -1,5 +1,5 @@
 ## 功能
-1. 渲染模板（EJS）
+1. 渲染模板（[artTemplate](https://github.com/Lxxyx/koa-artTemplate)）
 2. 发送静态文件，如HTML文件。
 3. 编写自定义路由与Restful Api，默认支持CORS跨域
 4. 读取post数据
@@ -45,10 +45,10 @@ PORT=8000 npm run pm2
 ```javascript
 // router/index.js
 router
-  .get('/', async (ctx, next) => {
+  .get('/', async ctx => {
     // 模板渲染，第一个参数为模板名称
     // 模板放置于views文件夹中
-    await ctx.render('index', { title: 'Koa-Easy' })
+    ctx.body = ctx.render('index', { title: 'Koa2-Easy' })
   })
 ```
 ### 发送静态HTML文件
