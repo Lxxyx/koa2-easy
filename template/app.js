@@ -3,7 +3,6 @@ import cors from 'koa-cors'
 import compress from 'koa-compress'
 import json from 'koa-json'
 import send from 'koa-send'
-import views from 'koa-views'
 import serve from 'koa-static'
 import logger from 'koa-logger'
 import convert from 'koa-convert'
@@ -58,7 +57,6 @@ app.use(convert(json()))
 
 // body解析
 app.use(bodyParser())
-
 
 // 设置渲染引擎
 app.use(artTemplate(path.resolve(__dirname, 'views')))
