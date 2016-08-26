@@ -2,6 +2,7 @@
 因为Koa2已经在蓬勃发展中，Async/Await能切实的避免回调地狱。所以基于Koa2订制了一套模板。
 
 全局安装koa2-easy，之后使用koa2命令即可在当前目录一键生成服务端程序。地址为：当前目录/koa2
+
 ```
 npm i koa2-easy -g
 
@@ -9,6 +10,7 @@ koa2
 
 cd koa2-easy && npm i （推荐使用cnpm）
 ```
+
 ## 功能
 1. 渲染模板（EJS）
 2. 发送静态文件，如HTML文件。

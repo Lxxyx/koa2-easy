@@ -1,3 +1,16 @@
+## 起因
+因为Koa2已经在蓬勃发展中，Async/Await能切实的避免回调地狱。所以基于Koa2订制了一套模板。
+
+全局安装koa2-easy，之后使用koa2命令即可在当前目录一键生成服务端程序。地址为：当前目录/koa2
+
+```
+npm i koa2-easy -g
+
+koa2
+
+cd koa2-easy && npm i （推荐使用cnpm）
+```
+
 ## 功能
 1. 渲染模板（[artTemplate](https://github.com/Lxxyx/koa-artTemplate)）
 2. 发送静态文件，如HTML文件。
@@ -6,7 +19,8 @@
 5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
 6. 自定义错误，可附加错误信息
 7. 默认支持gzip，减少传输体积，加快传输速度
-8. 开箱即用，无需折腾
+8. 支持文件上传
+9. 开箱即用，无需折腾
 
 ## 启动
 直接运行run.js即可  
