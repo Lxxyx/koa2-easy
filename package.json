@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/Lxxyx/koa2-easy",
   "dependencies": {
-    "fs-extra": "^0.30.0"
+    "fs-extra": "^0.30.0",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

@@ -2,16 +2,35 @@
 
 const fs = require('fs-extra')
 const path = require('path')
+const prompt = require('prompt')
 
 const template = path.join(__dirname, '..', 'template')
 
-const koa2 = `${process.cwd()}/koa2-easy`
+const schema = {
+  properties: {
+    dirname: {
+      description: 'Input project directory name',
+      required: true,
+      default: 'koa2-easy'
+    }
+  }
+}
 
-try {
-  fs.copySync(template, koa2)
-  console.log(`Generate koa2-easy at ${koa2}`)
-  console.log('cd koa2-easy && npm install')
-  console.log('use npm run dev to start it')
-} catch (e) {
-  console.error(e)
+prompt.start()
+
+prompt.get(schema, (err, result) => {
+  if (err) throw err
+  generateTemplate(result.dirname)
+})
+
+function generateTemplate(dirname) {
+  try {
+    const project = path.resolve(__dirname, dirname)
+    fs.copySync(template, dirname)
+    console.log(`Generate koa2-easy at ${dirname}`)
+    console.log(`cd ${dirname} && npm install`)
+    console.log('use npm run dev to start it')
+  } catch (e) {
+    console.error(e)
+  }
 }
