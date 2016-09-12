@@ -25,9 +25,9 @@ prompt.get(schema, (err, result) => {
 
 function generateTemplate(dirname) {
   try {
-    const project = path.resolve(__dirname, dirname)
+    const project = `${process.cwd()}/${dirname}`
     fs.copySync(template, dirname)
-    console.log(`Generate koa2-easy at ${dirname}`)
+    console.log(`Generate koa2-easy at ${process.cwd()}/${dirname}`)
     console.log(`cd ${dirname} && npm install`)
     console.log('use npm run dev to start it')
   } catch (e) {

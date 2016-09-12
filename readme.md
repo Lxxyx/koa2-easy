@@ -16,7 +16,7 @@ cd koa2-easy && npm i （推荐使用cnpm）
 ```
 
 ## 功能
-1. 渲染模板（EJS）
+1. 渲染模板（[artTemplate](https://github.com/Lxxyx/koa-artTemplate)）
 2. 发送静态文件，如HTML文件。
 3. 编写自定义路由与Restful Api，默认支持CORS跨域
 4. 读取post数据
