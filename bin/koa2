@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra')
-const path = require('path')
-const prompt = require('prompt')
+var fs = require('fs-extra')
+var path = require('path')
+var prompt = require('prompt')
 
-const template = path.join(__dirname, '..', 'template')
+var template = path.join(__dirname, '..', 'template')
 
-const schema = {
+var schema = {
   properties: {
     dirname: {
       description: 'Input project directory name',
@@ -18,14 +18,14 @@ const schema = {
 
 prompt.start()
 
-prompt.get(schema, (err, result) => {
+prompt.get(schema, function (err, result) {
   if (err) throw err
   generateTemplate(result.dirname)
 })
 
 function generateTemplate(dirname) {
   try {
-    const project = `${process.cwd()}/${dirname}`
+    var project = `${process.cwd()}/${dirname}`
     fs.copySync(template, dirname)
     console.log(`Generate koa2-easy at ${process.cwd()}/${dirname}`)
     console.log(`cd ${dirname} && npm install`)
