@@ -18,9 +18,9 @@
   "author": "Lxxyx",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
-    "babel-preset-es2017": "^6.14.0",
-    "babel-register": "^6.14.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-preset-es2017": "^6.16.0",
+    "babel-register": "^6.18.0",
     "bluebird": "^3.4.6",
     "fs-promise": "^0.5.0",
     "koa": "^2.0.0",
@@ -36,11 +36,11 @@
     "koa-send": "^3.2.0",
     "koa-static": "^2.0.0",
     "mkdirp-then": "^1.2.0",
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "eslint": "^3.5.0",
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.8.1",
     "eslint-config-vue": "^1.1.0",
     "eslint-plugin-vue": "^0.1.1"
   }
