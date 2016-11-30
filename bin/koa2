@@ -39,7 +39,8 @@ function generateTemplate (dirname, type) {
     fs.copySync(template, dirname)
     console.log(`Generate koa2-easy at ${process.cwd()}/${dirname}`)
     console.log(`cd ${dirname} && npm install`)
-    console.log('use npm run dev or yarn to start it')
+    console.log(`you can also use yarn to install it`)
+    console.log('use npm run dev to start it')
   } catch (e) {
     console.error(e)
   }
