@@ -15,6 +15,8 @@ koa2
 cd koa2-easy && npm i （推荐使用cnpm）
 ```
 
+现在你可以使用typescript版本了
+
 ## 功能
 1. 渲染模板（[artTemplate](https://github.com/Lxxyx/koa-artTemplate)）
 2. 发送静态文件，如HTML文件。

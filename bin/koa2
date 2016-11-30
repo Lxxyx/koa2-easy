@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 
+/* eslint-disable */
 var fs = require('fs-extra')
 var path = require('path')
 var prompt = require('prompt')
 
-var template = path.join(__dirname, '..', 'template')
-
 var schema = {
   properties: {
+    type: {
+      description: 'choose koa2-easy type, input js for javascript, ts for typescript',
+      required: true,
+      default: 'js'
+    },
     dirname: {
       description: 'Input project directory name',
       required: true,
@@ -20,16 +24,22 @@ prompt.start()
 
 prompt.get(schema, function (err, result) {
   if (err) throw err
-  generateTemplate(result.dirname)
+  generateTemplate(result.dirname, result.type)
 })
 
-function generateTemplate(dirname) {
+function generateTemplate (dirname, type) {
   try {
+    var template
+    if (type === 'ts') {
+      template = path.join(__dirname, '..', 'ts_template')
+    } else {
+      template = path.join(__dirname, '..', 'template')
+    }
     var project = `${process.cwd()}/${dirname}`
     fs.copySync(template, dirname)
     console.log(`Generate koa2-easy at ${process.cwd()}/${dirname}`)
     console.log(`cd ${dirname} && npm install`)
-    console.log('use npm run dev to start it')
+    console.log('use npm run dev or yarn to start it')
   } catch (e) {
     console.error(e)
   }

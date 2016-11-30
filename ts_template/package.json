@@ -1,0 +1,40 @@
+{
+  "name": "koa2-easy-ts",
+  "version": "1.0.0",
+  "description": "koa2-easy use typescript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && tsc -w & nodemon ./js_server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lxxyx/koa2-easy.git"
+  },
+  "keywords": [
+    "typescript",
+    "koa2",
+    "koa2-easy"
+  ],
+  "dependencies": {
+    "koa": "2",
+    "koa-bodyparser": "next",
+    "koa-compress": "next",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "^0.0.16",
+    "koa-logger": "^1.3.0",
+    "koa-router": "7",
+    "typescript": "^2.0.10",
+    "nodemon": "^1.11.0",
+    "@types/koa": "^2.0.34",
+    "@types/koa-bodyparser": "^3.0.20",
+    "@types/koa-compress": "^2.0.4",
+    "@types/koa-logger": "^2.0.1",
+    "@types/koa-router": "^7.0.21"
+  },
+  "author": "Lxxyx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lxxyx/koa2-easy/issues"
+  },
+  "homepage": "https://github.com/Lxxyx/koa2-easy#readme"
+}

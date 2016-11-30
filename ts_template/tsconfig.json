@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noResolve": true,
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "strictNullChecks": false,
+        "allowJs": true,
+        "pretty": true,
+        "outDir": "./js_server"
+    },
+    "include": [
+        "./ts/**/*"
+    ],
+    "exclude": [
+        "./node_modules"
+    ]
+}
