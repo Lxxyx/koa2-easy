@@ -9,17 +9,17 @@ import api from './router/api'
 const app = new Koa()
 
 app.use(async (ctx, next) => {
-    try {
-        await next()
-        ctx.set('PoweredBy', 'Koa2-Easy')
-    } catch (e) {
-        ctx.status = e.status || 403
-        ctx.body = {
-            status: e.status || 403,
-            message: e.message,
-            data: {}
-        }
+  try {
+    await next()
+    ctx.set('PoweredBy', 'Koa2-Easy')
+  } catch (e) {
+    ctx.status = e.status || 403
+    ctx.body = {
+      status: e.status || 403,
+      message: e.message,
+      data: {}
     }
+  }
 })
 
 app.use(compress({
@@ -34,10 +34,10 @@ app.use(convert(logger()))
 
 app.use(api.routes())
 
-let port:number = 3000
+let port: number = 3000
 
 if (process.env.PORT) {
-    port = Number(process.env.PORT)
+  port = Number(process.env.PORT)
 }
 
 app.listen(port)
