@@ -4,7 +4,7 @@
   "description": "koa2-easy use typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc && tsc -w & nodemon ./js_server/app.js"
+    "dev": "tsc -w & nodemon ./js_server/app.js"
   },
   "repository": {
     "type": "git",

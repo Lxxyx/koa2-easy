@@ -14,7 +14,7 @@ app.use(async (ctx, next) => {
     ctx.set('PoweredBy', 'Koa2-Easy')
     ctx.body = {
       status: 0,
-      data: ctx.body
+      data: JSON.parse(ctx.body)
     }
   } catch (e) {
     ctx.status = e.status || 1

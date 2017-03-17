@@ -6,11 +6,7 @@ const api = new Router({
 
 api
   .get('/', ctx => {
-    ctx.body = {
-      message: 'ok',
-      status: 200,
-      data: {}
-    }
+    ctx.body = {}
   })
 
 export default api
