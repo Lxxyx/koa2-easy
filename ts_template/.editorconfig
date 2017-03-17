@@ -1,0 +1,8 @@
+# indicate this is the root of the project
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+indent_size = 2

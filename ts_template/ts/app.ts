@@ -12,10 +12,14 @@ app.use(async (ctx, next) => {
   try {
     await next()
     ctx.set('PoweredBy', 'Koa2-Easy')
-  } catch (e) {
-    ctx.status = e.status || 403
     ctx.body = {
-      status: e.status || 403,
+      status: 0,
+      data: ctx.body
+    }
+  } catch (e) {
+    ctx.status = e.status || 1
+    ctx.body = {
+      status: e.status || 1,
       message: e.message,
       data: {}
     }
