@@ -7,8 +7,8 @@
     "koa2": "bin/koa2"
   },
   "scripts": {
-    "patch": "npm version patch && npm publish && cnpm sync && cnpm i koa2-easy -g",
-    "minor": "npm version minor && npm publish && cnpm sync && cnpm i koa2-easy -g"
+    "patch": "npm version patch && npm publish && cnpm sync && cnpm i koa2-easy -g && git push && git push --tags",
+    "minor": "npm version minor && npm publish && cnpm sync && cnpm i koa2-easy -g && git push && git push --tags"
   },
   "repository": {
     "type": "git",
