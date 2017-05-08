@@ -30,21 +30,6 @@ export function randomString (len) {
 }
 
 /**
- * @param  {Object} default  默认的对象，包括错误信息与状态码
- * @param  {Object} extra    附加的说明与参数
- */
-export class KoaErr extends Error {
-  constructor ({ message = 'Error', status = 500 } = {}, ...args) {
-    super()
-    this.message = message
-    this.status = status
-    if (args.length > 0) {
-      extend(this, args[0])
-    }
-  }
-}
-
-/**
  * 上传文件设置
  * @type {Object}
  */

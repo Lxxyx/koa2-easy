@@ -14,8 +14,6 @@ import index from './router/index'
 import api from './router/api'
 import test from './router/test'
 
-import { KoaErr } from './helper'
-
 const app = new Koa()
 
 // 全局错误处理
@@ -26,12 +24,6 @@ app.use(async (ctx, next) => {
     ctx.body = err
     ctx.status = err.status || 500
   }
-})
-
-// 使用自定义错误
-app.use(async (ctx, next) => {
-  ctx.Err = KoaErr
-  await next()
 })
 
 // 设置Header
