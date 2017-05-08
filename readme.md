@@ -15,18 +15,15 @@ koa2
 cd koa2-easy && npm i （推荐使用cnpm）
 ```
 
-现在你可以使用typescript版本了
-
 ## 功能
 1. 渲染模板（[artTemplate](https://github.com/Lxxyx/koa-artTemplate)）
 2. 发送静态文件，如HTML文件。
 3. 编写自定义路由与Restful Api，默认支持CORS跨域
 4. 读取post数据
 5. 纯ES6/7编写，使用koa2的Async/Await，避免回调地狱
-6. 自定义错误，可附加错误信息
-7. 默认支持gzip，减少传输体积，加快传输速度
-8. 支持文件上传
-9. 开箱即用，无需折腾
+6. 默认支持gzip，减少传输体积，加快传输速度
+7. 支持文件上传
+8. 开箱即用，无需折腾
 
 ## 启动
 直接运行run.js即可  
@@ -65,10 +62,10 @@ PORT=8000 npm run pm2
 ```javascript
 // router/index.js
 router
-  .get('/', async (ctx, next) => {
+  .get('/', async ctx => {
     // 模板渲染，第一个参数为模板名称
     // 模板放置于views文件夹中
-    await ctx.render('index', { title: 'Koa-Easy' })
+    ctx.body = ctx.render('index', { title: 'Koa2-Easy' })
   })
 ```
 ### 发送静态HTML文件
@@ -129,17 +126,4 @@ router
 // 在app.js中引用
 import api from './router/api'
 app.use(api.routes())
-```
-
-### 错误处理
-添加了自定义错误，调用时使用ctx.Err。
-
-```javascript
-// 一般错误处理，message和status为必须选项，否则为默认的Error与500。status为http状态码
-throw new ctx.Err({ message: '用户已存在', status: 400})
-// 用户收到的信息： {"message": "用户已存在","status": 400"}
-
-// 附加额外错误信息，写在第二个对象里就行
-throw new ctx.Err({ message: '用户已存在', status: 400}, {'error': true})
-// 用户收到的信息： {"message": "用户已存在","status": 400","error": true}
 ```
