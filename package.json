@@ -1,6 +1,6 @@
 {
   "name": "koa2-easy",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "Easy way to use koa2",
   "main": "index.js",
   "bin": {
