@@ -1,9 +1,9 @@
 import * as Koa from 'koa'
 import * as bodyparser from 'koa-bodyparser'
-import * as logger from 'koa-logger'
 import * as compress from 'koa-compress'
-const cors = require('koa-cors')
-const convert = require('koa-convert')
+import * as convert from 'koa-convert'
+import * as cors from 'koa-cors'
+import * as logger from 'koa-logger'
 import api from './router/api'
 
 const app = new Koa()
@@ -26,9 +26,7 @@ app.use(async (ctx, next) => {
   }
 })
 
-app.use(compress({
-  threshold: 2048
-}))
+app.use(compress({ threshold: 2048}))
 
 app.use(convert(cors()))
 

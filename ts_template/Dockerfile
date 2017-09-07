@@ -1,6 +1,6 @@
-FROM node:latest
+FROM node:8
 COPY ./ts /server/ts
-COPY tsconfig.json package.json  /server/
+COPY tsconfig.json package.json package-lock.json  /server/
 WORKDIR /server
 RUN npm install --registry=https://registry.npm.taobao.org
 RUN /server/node_modules/.bin/tsc
