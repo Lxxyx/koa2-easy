@@ -26,14 +26,14 @@
   },
   "homepage": "https://github.com/Lxxyx/koa2-easy",
   "dependencies": {
-    "eslint-plugin-html": "^1.7.0",
-    "fs-extra": "^0.30.0",
-    "prompt": "^1.0.0"
+    "eslint-plugin-html": "1.7.0",
+    "fs-extra": "0.30.0",
+    "prompt": "1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "eslint": "^3.3.1",
-    "eslint-config-vue": "^1.0.3",
-    "eslint-plugin-vue": "^0.1.1"
+    "babel-eslint": "6.1.2",
+    "eslint": "3.3.1",
+    "eslint-config-vue": "1.0.3",
+    "eslint-plugin-vue": "0.1.1"
   }
 }
