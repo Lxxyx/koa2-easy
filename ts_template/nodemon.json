@@ -3,7 +3,7 @@
   "ignore": [
     ".git",
     "node_modules/**/node_modules",
-    "ts/**/*",
+    "src/**/*",
     "*.js.map"
   ],
   "execMap": {

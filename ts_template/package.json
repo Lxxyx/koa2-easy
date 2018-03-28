@@ -4,7 +4,8 @@
   "description": "koa2-easy use typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w & nodemon ./js_server/app.js"
+    "dev": "tsc -w & nodemon ./js_server/app.js",
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",
@@ -16,21 +17,23 @@
     "koa2-easy"
   ],
   "dependencies": {
-    "@types/koa": "^2.0.39",
-    "@types/koa-bodyparser": "^3.0.24",
-    "@types/koa-compress": "^2.0.7",
-    "@types/koa-logger": "^2.0.2",
-    "@types/koa-router": "^7.0.23",
+    "@types/koa": "^2.0.44",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-compress": "^2.0.8",
+    "@types/koa-logger": "^3.1.0",
+    "@types/koa-router": "^7.0.27",
     "koa": "2",
     "koa-bodyparser": "next",
     "koa-compress": "next",
     "koa-convert": "^1.2.0",
     "koa-cors": "^0.0.16",
-    "koa-logger": "^3.0.1",
+    "koa-logger": "^3.2.0",
     "koa-router": "7",
-    "nodemon": "^1.12.0",
-    "pm2": "^2.6.1",
-    "typescript": "2.3.4"
+    "pm2": "^2.10.1",
+    "typescript": "2.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
   },
   "author": "Lxxyx",
   "license": "MIT",
