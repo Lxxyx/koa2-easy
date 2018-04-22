@@ -1,35 +1,42 @@
+import cors from '@koa/cors'
+import createLogger from 'concurrency-logger'
 import Koa from 'koa'
 import bodyparser from 'koa-bodyparser'
 import compress from 'koa-compress'
-import convert from 'koa-convert'
-import cors from 'koa-cors'
-import logger from 'koa-logger'
+import { useContainer, useKoaServer } from 'routing-controllers'
+import { Container } from 'typedi'
+import * as middlewares from './middwares'
 
 const app = new Koa()
 
 app.use(async (ctx, next) => {
-  ctx.set('PoweredBy', 'Koa2-Easy')
   try {
     await next()
-    ctx.body = {
-      code: 0,
-      message: 'ok',
-      data: JSON.parse(ctx.body)
-    }
+    ctx.set('PoweredBy', 'Koa2-Easy')
   } catch (e) {
-    ctx.status = e.status || 500
+    ctx.status = e.status || e.httpCode || 403
     ctx.body = {
-      code: e.status || 500,
+      code: ctx.status || 403,
       message: e.message,
-      data: {}
+      data: e.errors ? e.errors : {}
     }
   }
 })
 
 app.use(compress({ threshold: 2048 }))
-app.use(convert(cors()))
+app.use(cors())
 app.use(bodyparser())
-app.use(convert(logger()))
+app.use(createLogger({
+  timestamp: true
+}))
+
+useContainer(Container)
+useKoaServer(app, {
+  controllers: [__dirname + "/controllers/*.{ts,js}"],
+  defaults: { paramOptions: { required: true } },
+  defaultErrorHandler: false,
+  middlewares: Object.values(middlewares)
+})
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000
 

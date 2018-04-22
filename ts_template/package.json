@@ -4,7 +4,7 @@
   "description": "koa2-easy use typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w & nodemon ./js_server/app.js",
+    "dev": "NODE_ENV=development nodemon ./src/app.ts",
     "compile": "tsc"
   },
   "repository": {
@@ -17,23 +17,24 @@
     "koa2-easy"
   ],
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "@types/koa": "^2.0.44",
     "@types/koa-bodyparser": "^4.2.0",
     "@types/koa-compress": "^2.0.8",
     "@types/koa-logger": "^3.1.0",
     "@types/koa-router": "^7.0.27",
+    "concurrency-logger": "^2.1.0",
     "koa": "2",
     "koa-bodyparser": "next",
     "koa-compress": "next",
-    "koa-convert": "^1.2.0",
     "koa-cors": "^0.0.16",
-    "koa-logger": "^3.2.0",
     "koa-router": "7",
     "pm2": "^2.10.1",
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
+    "ts-node": "latest",
     "typedi": "^0.7.2",
-    "typescript": "2.7.2"
+    "typescript": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
