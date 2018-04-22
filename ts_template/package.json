@@ -30,6 +30,9 @@
     "koa-logger": "^3.2.0",
     "koa-router": "7",
     "pm2": "^2.10.1",
+    "reflect-metadata": "^0.1.12",
+    "routing-controllers": "^0.7.7",
+    "typedi": "^0.7.2",
     "typescript": "2.7.2"
   },
   "devDependencies": {

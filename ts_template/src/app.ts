@@ -4,7 +4,6 @@ import compress from 'koa-compress'
 import convert from 'koa-convert'
 import cors from 'koa-cors'
 import logger from 'koa-logger'
-import api from './router/api'
 
 const app = new Koa()
 
@@ -31,8 +30,6 @@ app.use(compress({ threshold: 2048 }))
 app.use(convert(cors()))
 app.use(bodyparser())
 app.use(convert(logger()))
-
-app.use(api.routes())
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000
 
